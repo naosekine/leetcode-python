@@ -3,9 +3,11 @@ class Solution:
         """
         Do not return anything, modify s in-place instead.
         """
-        mid = len(s)//2
-        n = len(s)-1
-        for i in range(mid):
-            memo = s[i]
-            s[i] = s[n-i]
-            s[n-i] = memo
+        upper = 0
+        lower = len(s)-1
+        
+        while upper < lower:
+            s[upper], s[lower] = s[lower], s[upper]
+            upper += 1
+            lower -= 1
+        
